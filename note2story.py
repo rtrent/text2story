@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw, ImageFont
 import os
 import textwrap
 
-def convert(input_filename = 'input.txt', output_name='output', output_filetype='.png', bg_color = 'blue', font_name = 'Arial.ttf', font_size=40, font_color='white', alignment='left', shape='post'):
+def convert(input_text = 'hello world', output_name='output', output_filetype='.png', bg_color = 'blue', font_name = 'Arial.ttf', font_size=40, font_color='white', alignment='left', shape='post'):
 	"Draw a text on an Image, saves it, show it"
 
 	#Details of colors for background and font
@@ -35,8 +35,11 @@ def convert(input_filename = 'input.txt', output_name='output', output_filetype=
 	fnt = ImageFont.truetype(font_name, font_size)
 
 	#Read lines of the text file
-	with open(input_filename) as file:
-		lines = file.readlines()
+	# with open(input_filename) as file: 
+	# 	lines = file.readlines()
+
+	#used to take string from the input rather than a file
+	lines = input_text.splitlines(keepends = True)
 	
 	#various size variables
 	character_limit_list = []
