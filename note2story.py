@@ -40,6 +40,7 @@ def convert(input_text = 'hello world', output_name='output', output_filetype='.
 
 	#used to take string from the input rather than a file
 	lines = input_text.splitlines(keepends = True)
+	filenames=[]
 	
 	#various size variables
 	character_limit_list = []
@@ -96,8 +97,10 @@ def convert(input_text = 'hello world', output_name='output', output_filetype='.
 			#if the line is too low on the image then save the imgage and make a new one
 			if y_line_height + font_height > canvas_height:
 				#show and save the completed image
-				image.show()
-				image.save(f"{output_name}_{file_num}{output_filetype}")
+				#image.show()
+				image_filename = (f"static/{output_name}_{file_num}{output_filetype}")
+				filenames.append(image_filename)
+				image.save(image_filename)
 				file_num += 1
 
 				#make a new blank image
@@ -142,8 +145,15 @@ def convert(input_text = 'hello world', output_name='output', output_filetype='.
 				blank_line_previous = blank_line
 
 	#save current image as the file
-	image.show()
-	image.save(f"{output_name}_{file_num}{output_filetype}")
+	#image.show()
+	image_filename = (f"static/{output_name}_{file_num}{output_filetype}")
+	filenames.append(image_filename)
+	image.save(image_filename)
+	#return list of filenames
+
+	return filenames
+
+
 
 if __name__ == '__main__':
 	main()

@@ -17,8 +17,8 @@ def index():
 @app.route("/results", methods=['POST'])
 def results():
 	text = request.form['note-text']
-	convert(input_text = text)
-	return render_template('results.html')
+	filenames = convert(input_text = text)
+	return render_template('results.html', results = filenames)
 
 if __name__ == "__main__":
 	app.run()
