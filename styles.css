@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body
+{
+    height: 300vh;
+}
+
+
+body {
+	padding: 25px;
+}
+
+.section {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.container {
+	display: flex;
+}
+
+#intro {
+	height: 30vh;
+}
+
+#header {
+	height: 10vh;
+	align-items: center;
+}
+
+h1 {
+	font-size: 8em;
+}
+
+#desc-holder {
+	justify-content: center;
+	align-items: center;
+	height: 20vh;
+}
+
+
+#description {
+	text-align: left;
+	font-size: 3em;
+	width: 70vw;
+	font-style: italic;
+}
+
+#step-1 {
+	height: 70vh;
+	flex-direction: column;
+}
+
+.subheader {
+	justify-content: center;
+}
+
+
+
+
+
+
+
+#settings {
+	flex-direction: column;
+}
