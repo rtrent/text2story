@@ -22,17 +22,15 @@
 				<h2>paste your note below</h2>
 			</div>
 
-			<div class="section" id="textarea-and-button-container">
-				<form>
-					<div id="textarea-container">
-						<textarea placeholder="paste here!"></textarea>
-					</div>
-					<div class="progress-button-container">
-						<a href="#step2-container"><button class="progress-button">next</button></a>
-					</div>
-				</form>
+			<form action="/convert" method="POST" class="section" id="textarea-and-button-container">
+				<div id="textarea-container">
+					<textarea id="note-text" name="note-text" placeholder="paste here!"></textarea>
+				</div>
+				<div class="progress-button-container">
+					<button type="submit" class="progress-button">next</button>
+				</div>
 				
-			</div>
+			</form>
 			
 		</div>
 		
