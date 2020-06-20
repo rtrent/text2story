@@ -1,5 +1,0 @@
-Rebekah Jones was fired last month from her job at the Florida Department of Health, where she helped create a data portal about the state's COVID-19 cases. Now, she has created a dashboard of her own.
-
-In some ways, Jones' new portal for Florida coronavirus data looks a lot like the state health department's. But it has a few key differences that reflect just how contentious coronavirus data has become amid politicized arguments about whether it's safe for states to reopen.
-
-Case in point: Jones' dashboard has a map that shows which Florida counties are ready for the next phase of reopening. By her calculations, only two of the state's 67 counties at the moment meet the state's criteria for further easing restrictions.
