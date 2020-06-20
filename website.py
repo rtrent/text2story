@@ -17,7 +17,15 @@ def index():
 @app.route("/results", methods=['POST'])
 def results():
 	text = request.form['note-text']
-	filenames = convert(input_text = text)
+
+	if text =='':
+		text = 'You need to paste your note into the text box. \n\n Thanks,\nRicky'
+
+
+	bg_color = request.form['bg-color']
+	font_color = request.form['font-color']
+
+	filenames = convert(input_text = text, bg_color = bg_color, font_color = font_color)
 	return render_template('results.html', results = filenames)
 
 if __name__ == "__main__":

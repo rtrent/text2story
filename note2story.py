@@ -2,6 +2,7 @@ import sys
 from PIL import Image, ImageDraw, ImageFont
 import os
 import textwrap
+import random
 
 def convert(input_text = 'hello world', output_name='output', output_filetype='.png', bg_color = 'blue', font_name = 'Arial.ttf', font_size=40, font_color='white', alignment='left', shape='post'):
 	"Draw a text on an Image, saves it, show it"
@@ -69,7 +70,7 @@ def convert(input_text = 'hello world', output_name='output', output_filetype='.
 	y_line_height = padding_y - offset_y
 
 	#variable to help make file names when creating output images
-	file_num = 1
+	file_num = random.randint(1,1000)
 
 	#Set flags for blank line calculations
 	blank_line = False
@@ -98,7 +99,7 @@ def convert(input_text = 'hello world', output_name='output', output_filetype='.
 			if y_line_height + font_height > canvas_height:
 				#show and save the completed image
 				#image.show()
-				image_filename = (f"static/{output_name}_{file_num}{output_filetype}")
+				image_filename = (f"static/images/{output_name}_{file_num}{output_filetype}")
 				filenames.append(image_filename)
 				image.save(image_filename)
 				file_num += 1
@@ -146,7 +147,7 @@ def convert(input_text = 'hello world', output_name='output', output_filetype='.
 
 	#save current image as the file
 	#image.show()
-	image_filename = (f"static/{output_name}_{file_num}{output_filetype}")
+	image_filename = (f"static/images/{output_name}_{file_num}{output_filetype}")
 	filenames.append(image_filename)
 	image.save(image_filename)
 	#return list of filenames

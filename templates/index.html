@@ -3,39 +3,89 @@
 <head>
 	<title>note2story</title>
 	<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+	<link rel="stylesheet" type="text/css" href="/Users/richardtrent/Documents/Projects/text2story/static/styles.css">
 	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-	<div class="page">
-		<div class="section" id="title-and-description-container">
-			<div id="title-container">
-				<h1>note2story</h1>
-			</div>
-			<div id="description-container">
-				<p id="description">Turn long text notes into several pictures so you can more easily share on social media</p>
-			</div>
+	<div class="page header-container">
+		<div id="title-container">
+			<h1>note2story</h1>
 		</div>
-
-		<div class="section" id="step1-container">
-			<div class="section-name">
-				<h2>paste your note below</h2>
-			</div>
-
-			<form action="/results" method="POST" class="section" id="textarea-and-button-container">
-				<div id="textarea-container">
-					<textarea id="note-text" name="note-text" placeholder="paste here!"></textarea>
-				</div>
-				<div class="progress-button-container">
-					<button type="submit" class="progress-button">next</button>
-				</div>
-				
-			</form>
-			
+		<div id="description-container">
+			<p id="description">Turn long text notes into several pictures so you can more easily share on social media</p>
 		</div>
-		
 	</div>
 
+	<div class="page" id="form-container">
+
+		<form action="/results" method="POST" class="section" id="form">
+		<div id="step1-container">
+			<div class="section-name">
+				<h2>*~step 1 paste your note~*</h2>
+			</div>
+			<div id="textarea-container">
+				<textarea id="note-text" name="note-text" placeholder="paste here!"></textarea>
+			</div>
+		</div>
+			<div id="step2-container">
+				<div class="section-name">
+					<h2>*~step 2 pick the settings~*</h2>
+				</div>
+				<div id="settings" class="section">
+					<div id="bg-color">
+						<label class="subsection">background color</label>
+						<div class="color-selector-container">
+							<div class="color">
+								<label for="black-bg">black</label><input id="black-bg" type="radio" name="bg-color" value="black" checked>
+							</div>
+							<div class="color">
+								<label for="red-bg">red</label><input id="red-bg" type="radio" name="bg-color" value="red">
+							</div>
+							<div class="color">
+								<label for="green-bg">green</label><input id="green-bg" type="radio" name="bg-color" value="green">
+							</div>
+							<div class="color">
+								<label for="blue-bg">blue</label><input id="blue-bg" type="radio" name="bg-color" value="blue">
+							</div>
+							<div class="color">
+								<label for="white-bg">white</label><input id="white-bg" type="radio" name="bg-color" value="white">
+							</div>
+						</div>
+					</div>
+
+					<div id="font-color">
+						<label class="subsection">font color</label>
+						<div class="color-selector-container">
+							<div class="color">
+								<label for="black-font">black</label><input id="black-font" type="radio" name="font-color" value="black">
+							</div>
+							<div class="color">
+								<label for="red-font">red</label><input id="red-font" type="radio" name="font-color" value="red">
+							</div>
+							<div class="color">
+								<label for="green-font">green</label><input id="green-font" type="radio" name="font-color" value="green">
+							</div>
+							<div class="color">
+								<label for="blue-font">blue</label><input id="blue-font" type="radio" name="font-color" value="blue">
+							</div>
+							<div class="color">
+								<label for="white-font">white</label><input id="white-font" type="radio" name="font-color" value="white" checked>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			<div class="progress-button-container">
+				<button type="submit" class="progress-button">next</button>
+			</div>
+		</form>
+		
+	</div>
+		
 
 </body>
 

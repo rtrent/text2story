@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Results</title>
+	<title>Success!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="/Users/richardtrent/Documents/Projects/text2story/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-    {% if results %}
-        <table>
-            <tbody>
-            {% for img_name in results %}
-                <tr>
-                    <td><img src="{{ img_name }}" alt="{{ img_name }}"></td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
-        No results :(
-    {% endif %}
+    <div id="results-page">
+        <div class="section header-container">
+            <div id="title-container">
+                <h1>note2story</h1>
+            </div>
+        </div>
+    <div id="results-container">
+        <div class="section-name">  
+            <h2>*~step 3 save the pics~*</h2>
+        </div>
+        {% if results %}
+            <table>
+                <tbody>
+                {% for img_name in results %}
+                    <tr>
+                        <td class="picture-container"><img src="{{ img_name }}" alt="{{ img_name }}" height="300" width="300"></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            No results :(
+        {% endif %}
+        </div>
+        <div class="back-button-container">
+            <button class="progress-button">back</button>
+        </div>
+    </div>
+    <!-- space between the photos and add a button at the bottom that says back to home -->
 </body>
 </html>
