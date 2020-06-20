@@ -238,6 +238,11 @@ text-align: center;
 	border: none;
 }
 
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
 /* Hide the browser's default radio button */
 
 
