@@ -26,6 +26,7 @@ def results():
 	font_color = request.form['font-color']
 
 	filenames = convert(input_text = text, bg_color = bg_color, font_color = font_color)
+
 	return render_template('results.html', results = filenames)
 
 if __name__ == "__main__":
