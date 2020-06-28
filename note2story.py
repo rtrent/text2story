@@ -3,8 +3,9 @@ from PIL import Image, ImageDraw, ImageFont
 import os
 import textwrap
 import random
+from backgrounds import grid
 
-def convert(input_text = 'hello world', output_name='output', output_filetype='.png', bg_color = 'blue', font_name = 'Arial.ttf', font_size=40, font_color='white', alignment='left', shape='post'):
+def convert(input_text, bg_color = 'blue', bg_pattern = 'solid', output_name='output', font_name = 'Arial.ttf', font_size=40, font_color='white', alignment='left', shape='story'):
 	"Draw a text on an Image, saves it, show it"
 
 	#Details of colors for background and font
@@ -16,21 +17,27 @@ def convert(input_text = 'hello world', output_name='output', output_filetype='.
 	"white": (255,255,255)
 	}
 
-	bg_color = color_dict[bg_color]
+	text_color = font_color
+	# bg_color = color_dict[bg_color]
 	font_color = color_dict[font_color]
+
 
 	#details of dimensions and formatting depending on the posting method, feed or story
 	#bg_x, bg_y, padding_x, padding_y
 	shape_dict = {
-		"post": (1080,1080,100,100),
-		"story":(1080,1920,100,150)
+		"post": (540,540,50,50),
+		"story":(540,960,70,95)
 	}
 
 	#Generate background - sizes are expressed as x dimension, y dimension
 	bg_x, bg_y, padding_x, padding_y = shape_dict[shape]
 
-	image = Image.new(mode = "RGB", size = (bg_x,bg_y), color = bg_color)
+	# image = Image.new(mode = "RGB", size = (bg_x,bg_y), color = bg_color)
+	# draw = ImageDraw.Draw(image)
+
+	image = grid(bg_color = bg_color, text_color = text_color)
 	draw = ImageDraw.Draw(image)
+
 
 	#Font details
 	fnt = ImageFont.truetype(font_name, font_size)
@@ -57,7 +64,7 @@ def convert(input_text = 'hello world', output_name='output', output_filetype='.
 
 		#if the length exceeds the width, then adjust
 		if font_width > canvas_width:
-			char_limit = int(char_limit * (canvas_width / font_width)) - 1
+			char_limit = int(char_limit * (canvas_width / font_width)) - 2
 
 		character_limit_list.append(char_limit)
 
@@ -99,13 +106,14 @@ def convert(input_text = 'hello world', output_name='output', output_filetype='.
 			if y_line_height + font_height > canvas_height:
 				#show and save the completed image
 				#image.show()
-				image_filename = (f"static/images/{output_name}_{file_num}{output_filetype}")
+				image_filename = (f"static/images/{output_name}_{file_num}.png")
 				filenames.append(image_filename)
 				image.save(image_filename)
 				file_num += 1
 
 				#make a new blank image
-				image = Image.new(mode = "RGB", size = (bg_x, bg_y), color = bg_color)
+				# image = Image.new(mode = "RGB", size = (bg_x, bg_y), color = bg_color)
+				image = grid(bg_color = bg_color, text_color = text_color)
 				draw = ImageDraw.Draw(image)
 				y_line_height = padding_y - offset_y
 
@@ -147,7 +155,7 @@ def convert(input_text = 'hello world', output_name='output', output_filetype='.
 
 	#save current image as the file
 	#image.show()
-	image_filename = (f"static/images/{output_name}_{file_num}{output_filetype}")
+	image_filename = (f"static/images/{output_name}_{file_num}.png")
 	filenames.append(image_filename)
 	image.save(image_filename)
 	#return list of filenames

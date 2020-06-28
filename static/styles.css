@@ -161,7 +161,7 @@ text-align: center;
 	
 }
 
-#font-color, #bg-color {
+#font-color, #bg-color, #bg-pattern {
 	flex-direction: column;
 	height: 40%;
 	align-items: center;
@@ -178,7 +178,7 @@ text-align: center;
 	max-width: 400px;
 }
 
-.color {
+.color, .pattern {
 	align-items: center;
 	justify-content: flex-start;
 }
@@ -196,7 +196,31 @@ text-align: center;
   order: 1;
 }
 
+.pattern label {
+	margin: 5px;
+	width: 50px;
+	order: 2;
+	margin-left: 10px;
+}
+
+.pattern input {
+  height: 25px;
+  width: 25px;
+  order: 1;
+}
+
+
+
 .color input:checked:after {
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: #ff6b6b;
+    content: '';
+    display: inline-block;
+}
+
+.pattern input:checked:after {
     width: 25px;
     height: 25px;
     border-radius: 25px;
