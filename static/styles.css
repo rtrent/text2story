@@ -161,9 +161,16 @@ text-align: center;
 	
 }
 
-#font-color, #bg-color, #bg-pattern {
+#bg-color, #bg-pattern {
 	flex-direction: column;
-	height: 40%;
+	height: 30%;
+	align-items: center;
+
+}
+
+#font-color {
+	flex-direction: column;
+	height: 20%;
 	align-items: center;
 
 }
@@ -268,6 +275,10 @@ a {
 	text-decoration: none;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
 
 /* desktop and tablet styles */
 @media only screen and (min-width: 501px)  {
