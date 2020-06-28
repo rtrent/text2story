@@ -5,7 +5,7 @@ import textwrap
 import random
 from backgrounds import build_background
 
-def convert(input_text, bg_color = 'blue', bg_pattern = 'solid', output_name='output', font_name = 'Arial.ttf', font_size=40, font_color='white', alignment='left', shape='story'):
+def convert(input_text, bg_color = 'blue', bg_pattern = 'solid', output_name='output', font_name = 'Arial.ttf', font_size=30, font_color='white', alignment='left', shape='story'):
 	"Draw a text on an Image, saves it, show it"
 
 	#Details of colors for background and font
