@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw, ImageFont
 import os
 import textwrap
 import random
-from backgrounds import grid
+from backgrounds import build_background
 
 def convert(input_text, bg_color = 'blue', bg_pattern = 'solid', output_name='output', font_name = 'Arial.ttf', font_size=40, font_color='white', alignment='left', shape='story'):
 	"Draw a text on an Image, saves it, show it"
@@ -35,7 +35,9 @@ def convert(input_text, bg_color = 'blue', bg_pattern = 'solid', output_name='ou
 	# image = Image.new(mode = "RGB", size = (bg_x,bg_y), color = bg_color)
 	# draw = ImageDraw.Draw(image)
 
-	image = grid(bg_color = bg_color, text_color = text_color)
+	image = build_background(pattern = bg_pattern, bg_color = bg_color, shape = shape, text_color = text_color)
+
+
 	draw = ImageDraw.Draw(image)
 
 
@@ -113,7 +115,7 @@ def convert(input_text, bg_color = 'blue', bg_pattern = 'solid', output_name='ou
 
 				#make a new blank image
 				# image = Image.new(mode = "RGB", size = (bg_x, bg_y), color = bg_color)
-				image = grid(bg_color = bg_color, text_color = text_color)
+				image = build_background(pattern = bg_pattern, bg_color = bg_color, shape = shape, text_color = text_color)
 				draw = ImageDraw.Draw(image)
 				y_line_height = padding_y - offset_y
 

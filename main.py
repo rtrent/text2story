@@ -24,9 +24,9 @@ def results():
 
 	bg_color = request.form['bg-color']
 	font_color = request.form['font-color']
-	bg_pattern = request.form['font-color']
+	bg_pattern = request.form['bg-pattern']
 
-	filenames = convert(input_text = text, bg_color = bg_color, font_color = font_color)
+	filenames = convert(input_text = text, bg_color = bg_color, bg_pattern = bg_pattern, font_color = font_color)
 
 	return render_template('results.html', results = filenames)
 

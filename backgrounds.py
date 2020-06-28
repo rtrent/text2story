@@ -44,6 +44,8 @@ def grid(bg_color = 'blue', shape='story', text_color = 'white'):
 def dots(bg_color = 'blue', shape='story', text_color = 'white'):
 	"create a monochromatic dots background"
 
+	core = pick_color(bg_color, 'core')
+
 	if text_color == 'white':
 		dark  = pick_color(bg_color, 'dark')
 		light = pick_color(bg_color, 'light')
@@ -92,6 +94,8 @@ def dots(bg_color = 'blue', shape='story', text_color = 'white'):
 def stripes(bg_color = 'blue', shape='story', text_color = 'white'):
 	"create a monochromatic stripes background"
 
+	core = pick_color(bg_color, 'core')
+
 	if text_color == 'white':
 		dark  = pick_color(bg_color, 'dark')
 		light = pick_color(bg_color, 'light')
@@ -124,6 +128,7 @@ def stripes(bg_color = 'blue', shape='story', text_color = 'white'):
 	return(image)
 
 def solid(bg_color = 'blue', shape='story', text_color = 'white'):
+	"create a solid background"
 
 	if text_color == 'white':
 		color  = pick_color(bg_color, 'dark')
@@ -136,4 +141,29 @@ def solid(bg_color = 'blue', shape='story', text_color = 'white'):
 	draw = ImageDraw.Draw(image)
 
 	return(image)
+
+
+def build_background(pattern, bg_color, shape, text_color):
+	"helper function to return the right background"
+	
+	if pattern == 'solid':
+		result = solid(bg_color = bg_color, shape=shape, text_color = text_color)
+	elif pattern == 'grid':
+		result = grid(bg_color = bg_color, shape=shape, text_color = text_color)
+	elif pattern == 'dots':
+		result = dots(bg_color = bg_color, shape=shape, text_color = text_color)
+	elif pattern == 'stripes':
+		result = stripes(bg_color = bg_color, shape= shape, text_color = text_color)
+	else:
+		exit()
+
+	return result
+
+
+
+
+
+
+
+
 
